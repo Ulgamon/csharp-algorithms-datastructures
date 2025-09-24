@@ -29,28 +29,49 @@ namespace Algorithms.Exercises
         //    return false;
         //}
 
-        // Solution O(n) with sorted elements
+        //// Solution O(n) with sorted elements
+        //public static bool hasPairWithSum(List<int> arr, int sum)
+        //{
+        //    int low = 0;
+        //    int high = arr.Count - 1;
+        //    while (low < high)
+        //    {
+        //        int pairSum = arr[low] + arr[high];
+        //        if (pairSum == sum)
+        //        {
+        //            return true;
+        //        }
+        //        else if (pairSum < sum)
+        //        {
+        //            low++;
+        //        }
+        //        else
+        //        {
+        //            high--;
+        //        }
+        //    }
+
+        //    return false;
+        //}
+
+        // Solution O(n) with unsorted elements
+
         public static bool hasPairWithSum(List<int> arr, int sum)
         {
-            int low = 0;
-            int high = arr.Count - 1;
-            while (low < high)
+            // We will traverse through integer list and add complement number to HashSet
+            // and check if current element exists in HashSet
+            HashSet<int> complements = new HashSet<int>();
+            for (int i = 0; i < arr.Count; i++)
             {
-                int pairSum = arr[low] + arr[high];
-                if (pairSum == sum)
+                if (complements.Contains(arr[i]))
                 {
                     return true;
                 }
-                else if (pairSum < sum)
-                {
-                    low++;
-                }
                 else
                 {
-                    high--;
+                    complements.Add(sum - arr[i]);
                 }
             }
-
             return false;
         }
 
