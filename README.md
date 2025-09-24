@@ -15,3 +15,6 @@ Any section that doesn't have any programming exercise will be skipped.
 
 ## Section 6: Data Structures: Arrays
 
+* [Reverse String](/Algorithms/Section6/ReverseString.cs) O(n)
+* [Merge Sorted Array](/Algorithms/Section6/MergeSortedArrays.cs) O(a + b)
+
