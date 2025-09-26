@@ -19,26 +19,53 @@ namespace Algorithms.Section7
         // It should return null
 
         // O(n) is desired time complexity
-        // O(n^2) Algorithm with nested for loops
+
+
+        //// O(n^2) Algorithm with nested for loops
+        //public static int? FirstRecurringCharacterMethod(int[] array)
+        //{
+        //    // Two variables that will check for recurrence and distance between two recurrences
+        //    // The idea is that on first recurrence I will take it as a result
+        //    // and then use it as a boundary and only check for recurrences between
+        //    // those index boundaries which if exist will gice me recurrence
+        //    // with smaller distance which is automatically the first recurrence
+        //    int? result = null;
+        //    int lastIndex = array.Length;
+
+        //    for (int i = 0; i < lastIndex; i++)
+        //    {
+        //        for (int j = i + 1; j < lastIndex; j++)
+        //        {
+        //            if (array[i] == array[j])
+        //            {
+        //                result = array[i];
+        //                lastIndex = j;
+        //            }
+        //        }
+        //    }
+
+        //    return result;
+        //}
+
+        // O(n) algorithm
+        // If element exist in the HashSet we immediately return it's value
         public static int? FirstRecurringCharacterMethod(int[] array)
         {
-            // Two variables that will check for recurrence and distance between two recurrences
-            // The idea is that on first recurrence I will take it as a result
-            // and then use it as a boundary and only check for recurrences between
-            // those index boundaries which if exist will gice me recurrence
-            // with smaller distance which is automatically the first recurrence
             int? result = null;
-            int lastIndex = array.Length;
 
-            for (int i = 0; i < lastIndex; i++)
+            HashSet<int> visited = new HashSet<int>();
+
+            for (int i = 0; i < array.Length; i++)
             {
-                for (int j = i + 1; j < lastIndex; j++)
+
+                // Does it contain a key with value pair
+                if (visited.Contains(array[i]))
                 {
-                    if (array[i] == array[j])
-                    {
-                        result = array[i];
-                        lastIndex = j;
-                    }
+                    return array[i];
+                }
+                else
+                {
+                    visited.Add(array[i]);
                 }
             }
 
