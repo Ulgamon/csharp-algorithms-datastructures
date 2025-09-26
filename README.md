@@ -18,3 +18,6 @@ Any section that doesn't have any programming exercise will be skipped.
 * [Reverse String](/Algorithms/Section6/ReverseString.cs) O(n)
 * [Merge Sorted Array](/Algorithms/Section6/MergeSortedArrays.cs) O(a + b)
 
+## Section 7: Data Structures: Hash Tables
+
+* [First Recurring Character](/Algorithms/Section7/FirstRecurringCharacter.cs) O(n)
