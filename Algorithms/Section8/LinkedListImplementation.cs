@@ -93,7 +93,6 @@ namespace Algorithms.Section8
         public Link<T>? Insert(int index, Link<T> element)
         {
             int i = 0;
-            Link<T>? iterator = Head;
 
             if (index == 0)
             {
@@ -105,19 +104,35 @@ namespace Algorithms.Section8
                 return this.Append(element);
             }
 
-            if (Length > 0 && iterator != null && index > 0 && index < Length)
+            if (Length > 0 && index > 0 && index < Length)
             {
-                while (i != index - 1)
+                Link<T> prev = TraverseToIndex(index - 1);
+                if (prev != null && prev.Reference != null)
                 {
-                    iterator = iterator.Reference;
-                    i++;
+                    Link<T> currEl = prev.Reference;
+                    prev.Reference = element;
+                    element.Reference = currEl;
+                    Length++;
+                    return element;
                 }
-                element.Reference = iterator.Reference;
-                iterator.Reference = element;
-                Length++;
-                return element;
             }
             return null;
+        }
+
+        public Link<T>? TraverseToIndex(int index)
+        {
+            if (index < 0 || index >= Length)
+            {
+                return null;
+            }
+            int counter = 0;
+            Link<T>? iterator = Head;
+            while (counter != index)
+            {
+                counter++;
+                iterator = iterator.Reference;
+            }
+            return iterator;
         }
 
         //public Link<T>? Remove(int index)

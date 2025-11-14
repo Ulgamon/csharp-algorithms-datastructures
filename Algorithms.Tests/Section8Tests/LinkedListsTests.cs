@@ -94,5 +94,18 @@ namespace Algorithms.Tests.Section8Tests
 
             Assert.Equal(ints.ReturnListForTesting(), list);
         }
+
+        [Fact]
+        public void TestTraverseToIndex()
+        {
+            Link<int>[] test = [new Link<int>(1), new Link<int>(2), new Link<int>(3), new Link<int>(4), new Link<int>(0), new Link<int>(-1), new Link<int>(80)];
+            LinkedListImplementation<int> ints = new LinkedListImplementation<int>(test);
+
+            int result = 80;
+
+            Link<int> link = ints.TraverseToIndex(6);
+
+            Assert.Equal(link.Value, result);
+        }
     }
 }
