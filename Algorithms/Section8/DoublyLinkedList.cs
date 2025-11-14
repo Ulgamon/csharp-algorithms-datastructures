@@ -64,6 +64,44 @@ namespace Algorithms.Section8
             Tail = link;
             return link;
         }
+
+        public DoublyLink<T>? Prepend(DoublyLink<T> link)
+        {
+            if (Length == 0)
+            {
+                Head = link;
+                Tail = link;
+                Length++;
+                return link;
+            }
+            link.Next = Head;
+            Head.Previous = link;
+            Head = link;
+            return link;
+        }
+
+        public DoublyLink<T>? DeleteFirstItem()
+        {
+            if (Length > 1)
+            {
+                DoublyLink<T>? result = Head;
+
+                result.Next.Previous = null;
+
+                Head = result.Next;
+
+                return result;
+            }
+            else if (Length == 1)
+            {
+                DoublyLink<T>? result = Head;
+                Head = null;
+                Tail = null;
+                Length--;
+                return result;
+            }
+            return null;
+        }
     }
 
     public class DoublyLink<T>
