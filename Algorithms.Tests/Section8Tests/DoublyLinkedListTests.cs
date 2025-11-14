@@ -70,5 +70,21 @@ namespace Algorithms.Tests.Section8Tests
 
             Assert.Equal(ints.ReturnList(), list);
         }
+
+        [Fact]
+        public void TestLinkedListsDeletLastItem()
+        {
+            // Creating array of links for Linked List constructor
+            DoublyLink<int>[] test = [new DoublyLink<int>(1), new DoublyLink<int>(2), new DoublyLink<int>(3), new DoublyLink<int>(4), new DoublyLink<int>(0), new DoublyLink<int>(-1), new DoublyLink<int>(80)];
+
+            DoublyLinkedList<int> ints = new DoublyLinkedList<int>(test);
+
+            // Creating a test list
+            List<int> list = new List<int> { 1, 2, 3, 4, 0, -1 };
+
+            ints.DeleteLastItem();
+
+            Assert.Equal(ints.ReturnList(), list);
+        }
     }
 }

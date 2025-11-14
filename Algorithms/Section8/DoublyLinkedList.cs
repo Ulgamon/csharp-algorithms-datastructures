@@ -102,6 +102,29 @@ namespace Algorithms.Section8
             }
             return null;
         }
+
+        public DoublyLink<T>? DeleteLastItem()
+        {
+            if (Length > 1)
+            {
+                DoublyLink<T>? result = Tail;
+
+                Tail.Previous.Next = null;
+
+                Tail = result;
+
+                return result;
+            }
+            else if (Length == 1)
+            {
+                DoublyLink<T>? result = Head;
+                Head = null;
+                Tail = null;
+                Length--;
+                return result;
+            }
+            return null;
+        }
     }
 
     public class DoublyLink<T>
