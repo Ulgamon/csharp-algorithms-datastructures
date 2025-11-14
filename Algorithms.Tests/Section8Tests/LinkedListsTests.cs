@@ -107,5 +107,19 @@ namespace Algorithms.Tests.Section8Tests
 
             Assert.Equal(link.Value, result);
         }
+
+        [Fact]
+        public void TestRemoveToIndex()
+        {
+            Link<int>[] test = [new Link<int>(1), new Link<int>(2), new Link<int>(3), new Link<int>(4), new Link<int>(0), new Link<int>(-1), new Link<int>(80)];
+            LinkedListImplementation<int> ints = new LinkedListImplementation<int>(test);
+
+            // Creating a test list
+            List<int> list = new List<int> { 1, 2, 3, 0, -1, 80 };
+
+            ints.RemoveFromIndex(3);
+
+            Assert.Equal(list, ints.ReturnListForTesting());
+        }
     }
 }

@@ -135,21 +135,22 @@ namespace Algorithms.Section8
             return iterator;
         }
 
-        //public Link<T>? Remove(int index)
-        //{
-        //    Link<T>? iterator = Head;
-        //    if (iterator == null || index >= Length || index < 0) return null;
-        //    int i = 0;
-        //    while (i - 1 != index)
-        //    {
-        //        i++;
-        //        iterator = iterator.Reference;
-        //    }
-        //    Link<T> unwantedNode = iterator.Reference;
-        //    iterator.Reference = unwantedNode.Reference;
-        //    Length--;
-        //    return iterator;
-        //}
+        public Link<T>? RemoveFromIndex(int index)
+        {
+            if (index >= Length || index < 0) return null;
+
+            Link<T>? prev = TraverseToIndex(index - 1);
+
+            if (prev != null && prev.Reference != null)
+            {
+                Link<T> unwantedNode = prev.Reference;
+                prev.Reference = unwantedNode.Reference;
+                Length--;
+                return unwantedNode;
+            }
+
+            return null;
+        }
 
         public List<T> ReturnListForTesting()
         {
