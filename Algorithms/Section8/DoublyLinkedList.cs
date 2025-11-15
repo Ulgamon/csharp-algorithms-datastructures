@@ -125,6 +125,45 @@ namespace Algorithms.Section8
             }
             return null;
         }
+
+        public DoublyLink<T>? TraverseToIndex(int index)
+        {
+            if (Length > 0 && Head != null && Tail != null && index > 0 && index < Length)
+            {
+                if (index < Length / 2)
+                {
+                    int counter = 0;
+                    DoublyLink<T>? result = Head;
+                    while (index != counter)
+                    {
+                        result = Head.Next;
+                        counter++;
+                    }
+                    return result;
+                }
+                else
+                {
+                    int counter = Length - 1;
+                    DoublyLink<T>? result = Tail;
+                    while (index != counter)
+                    {
+                        result = Tail.Previous;
+                        counter--;
+                    }
+                    return result;
+                }
+            }
+            return null;
+        }
+
+        //public DoublyLink<T>? Remove(int index)
+        //{
+        //    if (index > 0 && index < Length)
+        //    {
+
+        //    }
+        //    return null;
+        //}
     }
 
     public class DoublyLink<T>
