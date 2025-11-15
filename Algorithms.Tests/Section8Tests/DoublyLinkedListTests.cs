@@ -116,5 +116,23 @@ namespace Algorithms.Tests.Section8Tests
 
             Assert.Equal(ints.ReturnList(), list);
         }
+
+        [Fact]
+        public void TestLinkedListInsert()
+        {
+            // Creating array of links for Linked List constructor
+            DoublyLink<int>[] test = [new DoublyLink<int>(1), new DoublyLink<int>(2), new DoublyLink<int>(3), new DoublyLink<int>(4), new DoublyLink<int>(0), new DoublyLink<int>(-1), new DoublyLink<int>(80)];
+
+            DoublyLinkedList<int> ints = new DoublyLinkedList<int>(test);
+
+            // Creating a test list
+            List<int> list = new List<int> { 1, 2, 3, 4, 0, 69, -1, 80 };
+            int index = 5;
+            DoublyLink<int> value = new DoublyLink<int>(69);
+
+            ints.Insert(index, value);
+
+            Assert.Equal(ints.ReturnList(), list);
+        }
     }
 }

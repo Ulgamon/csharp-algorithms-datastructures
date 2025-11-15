@@ -158,7 +158,7 @@ namespace Algorithms.Section8
 
         public DoublyLink<T>? Remove(int index)
         {
-            if (index > 0 && index < Length)
+            if (index >= 0 && index < Length)
             {
                 DoublyLink<T>? itemToRemove = TraverseToIndex(index);
 
@@ -180,6 +180,35 @@ namespace Algorithms.Section8
 
                 return itemToRemove;
 
+            }
+            return null;
+        }
+
+        public DoublyLink<T>? Insert(int index, DoublyLink<T> value)
+        {
+            if (index > 0 && index < Length)
+            {
+                DoublyLink<T>? itemToMove = TraverseToIndex(index - 1);
+                DoublyLink<T>? next = itemToMove.Next;
+
+                itemToMove.Next = value;
+                value.Next = next;
+
+                next.Previous = value;
+                value.Previous = itemToMove;
+
+                Length++;
+
+                return value;
+
+            }
+            else if (index == 0)
+            {
+                return Prepend(value);
+            }
+            else if (index == Length)
+            {
+                return Append(value);
             }
             return null;
         }
