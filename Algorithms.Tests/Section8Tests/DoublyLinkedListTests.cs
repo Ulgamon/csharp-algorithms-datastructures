@@ -100,5 +100,21 @@ namespace Algorithms.Tests.Section8Tests
 
             Assert.Equal(ints.TraverseToIndex(5).Value, -1);
         }
+
+        [Fact]
+        public void TestLinkedRemove()
+        {
+            // Creating array of links for Linked List constructor
+            DoublyLink<int>[] test = [new DoublyLink<int>(1), new DoublyLink<int>(2), new DoublyLink<int>(3), new DoublyLink<int>(4), new DoublyLink<int>(0), new DoublyLink<int>(-1), new DoublyLink<int>(80)];
+
+            DoublyLinkedList<int> ints = new DoublyLinkedList<int>(test);
+
+            // Creating a test list
+            List<int> list = new List<int> { 1, 2, 3, 0, -1, 80 };
+
+            ints.Remove(3);
+
+            Assert.Equal(ints.ReturnList(), list);
+        }
     }
 }

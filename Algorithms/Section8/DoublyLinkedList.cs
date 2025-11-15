@@ -128,7 +128,7 @@ namespace Algorithms.Section8
 
         public DoublyLink<T>? TraverseToIndex(int index)
         {
-            if (Length > 0 && Head != null && Tail != null && index > 0 && index < Length)
+            if (Head != null && Tail != null && index > 0 && index < Length)
             {
                 if (index < Length / 2)
                 {
@@ -136,7 +136,7 @@ namespace Algorithms.Section8
                     DoublyLink<T>? result = Head;
                     while (index != counter)
                     {
-                        result = Head.Next;
+                        result = result.Next;
                         counter++;
                     }
                     return result;
@@ -147,7 +147,7 @@ namespace Algorithms.Section8
                     DoublyLink<T>? result = Tail;
                     while (index != counter)
                     {
-                        result = Tail.Previous;
+                        result = result.Previous;
                         counter--;
                     }
                     return result;
@@ -156,14 +156,33 @@ namespace Algorithms.Section8
             return null;
         }
 
-        //public DoublyLink<T>? Remove(int index)
-        //{
-        //    if (index > 0 && index < Length)
-        //    {
+        public DoublyLink<T>? Remove(int index)
+        {
+            if (index > 0 && index < Length)
+            {
+                DoublyLink<T>? itemToRemove = TraverseToIndex(index);
 
-        //    }
-        //    return null;
-        //}
+                DoublyLink<T>? prev = itemToRemove.Previous;
+                DoublyLink<T>? next = itemToRemove.Next;
+
+                if (prev == null)
+                {
+                    return DeleteFirstItem();
+                }
+                if (next == null)
+                {
+                    return DeleteLastItem();
+                }
+
+                prev.Next = next;
+                next.Previous = prev;
+                Length--;
+
+                return itemToRemove;
+
+            }
+            return null;
+        }
     }
 
     public class DoublyLink<T>
