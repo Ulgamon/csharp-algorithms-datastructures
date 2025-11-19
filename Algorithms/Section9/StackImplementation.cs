@@ -35,33 +35,36 @@ namespace Algorithms.Section9
             }
             value.Next = Top;
             Top = value;
+            Length++;
             return value;
         }
 
-        //public StackNode<T>? Pop()
-        //{
-        //    if (Length == 1 && Top != null)
-        //    {
-        //        StackNode<T> res = Top;
-        //        Top = null;
-        //        Bottom = null;
-        //        Length = 0;
-        //        return res;
-        //    }
-        //    if (Length == 0 || Top == null) return null;
+        public StackNode<T>? Pop()
+        {
+            if (Length == 1 && Top != null)
+            {
+                StackNode<T> res = Top;
+                Top = null;
+                Bottom = null;
+                Length = 0;
+                return res;
+            }
+            if (Length == 0 || Top == null) return null;
 
-        //    StackNode<T> result = Top;
-        //    Top = Top.Next;
-        //    return result;
+            StackNode<T> result = Top;
+            Top = Top.Next;
+            result.Next = null;
+            Length--;
+            return result;
 
-        //}
+        }
 
         public List<T> ReturnList()
         {
             List<T> result = new List<T>();
             if (Top == null || Length == 0) return result;
             StackNode<T>? iter = Top;
-            while(iter != null)
+            while (iter != null)
             {
                 result.Add(iter.Value);
                 iter = iter.Next;
