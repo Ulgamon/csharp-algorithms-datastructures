@@ -152,6 +152,30 @@ namespace Algorithms.Section8
             return null;
         }
 
+        public void Reverse()
+        {
+            if (Head == null || Head.Reference == null)
+            {
+                return;
+            }
+
+            Link<T>? first = Head;
+            Tail = Head;
+            Link<T>? second = first.Reference;
+
+            while (second != null)
+            {
+                Link<T>? third = second.Reference;
+                second.Reference = first;
+                first = second;
+                second = third;
+            }
+
+            Head = first;
+            Tail.Reference = null;
+
+        }
+
         public List<T> ReturnListForTesting()
         {
             List<T> elements = new List<T>();

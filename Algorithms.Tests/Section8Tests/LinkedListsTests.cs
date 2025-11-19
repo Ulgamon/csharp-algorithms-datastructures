@@ -121,5 +121,21 @@ namespace Algorithms.Tests.Section8Tests
 
             Assert.Equal(list, ints.ReturnListForTesting());
         }
+
+        [Fact]
+        public void TestLinkedListReverse()
+        {
+            // Creating array of links for Linked List constructor
+            Link<int>[] test = [new Link<int>(1), new Link<int>(2), new Link<int>(3), new Link<int>(4), new Link<int>(0), new Link<int>(-1), new Link<int>(80)];
+
+            LinkedListImplementation<int> ints = new LinkedListImplementation<int>(test);
+
+            // Creating a test list
+            List<int> list = new List<int> { 80, -1, 0, 4, 3, 2, 1 };
+
+            ints.Reverse();
+
+            Assert.Equal(ints.ReturnListForTesting(), list);
+        }
     }
 }
