@@ -21,3 +21,8 @@ Any section that doesn't have any programming exercise will be skipped.
 ## Section 7: Data Structures: Hash Tables
 
 * [First Recurring Character](/Algorithms/Section7/FirstRecurringCharacter.cs) O(n)
+
+## Section 8: Data Structures: Linked Lists
+
+* [Singly Linked List](/Algorithms/Section8/LinkedListImplementation.cs)
+* [Doubly Linked List](/Algorithms/Section8/DoublyLinkedList.cs) 
