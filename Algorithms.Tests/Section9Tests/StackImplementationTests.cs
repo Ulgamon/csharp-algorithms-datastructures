@@ -13,7 +13,6 @@ namespace Algorithms.Tests.Section9Tests
         [Fact]
         public void TestStack()
         {
-            // Creating array of links for Linked List constructor
             StackNode<int>[] test = [new StackNode<int>(1), new StackNode<int>(2), new StackNode<int>(3), new StackNode<int>(4), new StackNode<int>(0), new StackNode<int>(-1), new StackNode<int>(80)];
 
             StackImplementation<int> ints = new StackImplementation<int>();
@@ -35,7 +34,6 @@ namespace Algorithms.Tests.Section9Tests
         [Fact]
         public void TestStackPop()
         {
-            // Creating array of links for Linked List constructor
             StackNode<int>[] test = [new StackNode<int>(1), new StackNode<int>(2), new StackNode<int>(3), new StackNode<int>(4), new StackNode<int>(0), new StackNode<int>(-1), new StackNode<int>(80)];
 
             StackImplementation<int> ints = new StackImplementation<int>();
@@ -55,6 +53,24 @@ namespace Algorithms.Tests.Section9Tests
             List<int> list = new List<int> { 3, 4, 0, -1, 80 };
 
             Assert.Equal(ints.ReturnList(), list);
+        }
+
+        [Fact]
+        public void TestStackPeek()
+        {
+            StackNode<int>[] test = [new StackNode<int>(1), new StackNode<int>(2), new StackNode<int>(3), new StackNode<int>(4), new StackNode<int>(0), new StackNode<int>(-1), new StackNode<int>(80)];
+
+            StackImplementation<int> ints = new StackImplementation<int>();
+
+            ints.Push(new StackNode<int>(80));
+            ints.Push(new StackNode<int>(-1));
+            ints.Push(new StackNode<int>(0));
+            ints.Push(new StackNode<int>(4));
+            ints.Push(new StackNode<int>(3));
+            ints.Push(new StackNode<int>(2));
+            ints.Push(new StackNode<int>(1));
+
+            Assert.Equal(1, ints.Peek().Value);
         }
     }
 }

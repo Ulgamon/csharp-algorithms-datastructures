@@ -19,10 +19,10 @@ namespace Algorithms.Section9
             Length = 0;
         }
 
-        //public StackNode<T>? Peek(int index)
-        //{
-
-        //}
+        public StackNode<T>? Peek()
+        {
+            return Top;
+        }
 
         public StackNode<T>? Push(StackNode<T> value)
         {
