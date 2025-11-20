@@ -26,3 +26,9 @@ Any section that doesn't have any programming exercise will be skipped.
 
 * [Singly Linked List](/Algorithms/Section8/LinkedListImplementation.cs)
 * [Doubly Linked List](/Algorithms/Section8/DoublyLinkedList.cs) 
+
+## Section 9: Data Structures: Stacks + Queues
+
+* [Stack - Singly Linked List](/Algorithms/Section9/StackImplementation.cs)
+* [Stack - Dynamic Array](/Algorithms/Section9/StackArray.cs)
+* [Queue - Doubly Linked List](/Algorithms/Section9/QueueLinkedList.cs)
