@@ -34,3 +34,5 @@ Any section that doesn't have any programming exercise will be skipped.
 * [Queue - Doubly Linked List](/Algorithms/Section9/QueueLinkedList.cs)
 * [Queue - Using Stacks](/Algorithms/Section9/QueueUsingStack.cs)
 * [Stack - Using Queue](/Algorithms/Section9/StackUsingQueues.cs)
+
+## Section 10: Data Structures: Trees

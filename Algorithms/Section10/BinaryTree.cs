@@ -6,40 +6,115 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Section10
 {
-    public class BinaryTree<T>
+    public class BinaryTree
     {
-        public Node<T>? Root { get; set; }
+        public Node? Root { get; set; }
         public BinaryTree()
         {
             Root = null;
         }
 
-        public void Insert(T value)
+        public void Insert(int value)
         {
+            Node valueToInsert = new Node(value);
 
+            if (Root == null)
+            {
+                Root = valueToInsert;
+                return;
+            }
+
+            Node? temp = Root;
+
+            while (temp != null)
+            {
+                if (temp.Value < value)
+                {
+                    if (temp.Right == null)
+                    {
+                        temp.Right = valueToInsert;
+                        return;
+                    }
+                    else
+                    {
+                        temp = temp.Right;
+                    }
+                }
+                else
+                {
+                    if (temp.Left == null)
+                    {
+                        temp.Left = valueToInsert;
+                        return;
+                    }
+                    else
+                    {
+                        temp = temp.Left;
+                    }
+                }
+            }
         }
 
-        public void Lookup(T value)
+        public bool Lookup(int value)
         {
-
+            Node? temp = Root;
+            while (temp != null)
+            {
+                if (temp.Value == value)
+                {
+                    return true;
+                }
+                else if (temp.Value < value)
+                {
+                    temp = temp.Right;
+                }
+                else
+                {
+                    temp = temp.Left;
+                }
+            }
+            return false;
         }
 
-        public void Remove(T value)
+        public bool Remove(int value)
         {
+            return false;
+        }
+
+        public List<int> Traverse()
+        {
+            List<int> result = new List<int>();
+
+            PreOrder(Root, result);
+
+            return result;
+        }
+
+        public void PreOrder(Node node, List<int> tree)
+        {
+            if (node == null) return;
+
+            tree.Add(node.Value);
+
+            PreOrder(node.Left, tree);
+
+            PreOrder(node.Right, tree);
 
         }
     }
 
-    public class Node<T>
+    public class Node
     {
-        public Node<T>? Left { get; set; }
+        public Node? Left { get; set; }
 
-        public Node<T>? Right { get; set; }
+        public Node? Right { get; set; }
 
-        public T Value { get; set; }
-        public Node(T value)
+        public int Value { get; set; }
+        public Node(int value)
         {
             Value = value;
+            Left = null;
+            Right = null;
         }
     }
 }
