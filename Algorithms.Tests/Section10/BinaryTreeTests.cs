@@ -32,9 +32,37 @@ namespace Algorithms.Tests.Section10
         }
 
         [Fact]
-        public void BinaryTreeLookupTest()
+        public void BinaryTreeLookupTestTrue()
         {
+            BinaryTree tree = new BinaryTree();
 
+            tree.Insert(9);
+            tree.Insert(4);
+            tree.Insert(6);
+            tree.Insert(20);
+            tree.Insert(170);
+            tree.Insert(15);
+            tree.Insert(1);
+
+
+            Assert.True(tree.Lookup(170));
+        }
+
+        [Fact]
+        public void BinaryTreeLookupTestFalse()
+        {
+            BinaryTree tree = new BinaryTree();
+
+            tree.Insert(9);
+            tree.Insert(4);
+            tree.Insert(6);
+            tree.Insert(20);
+            tree.Insert(170);
+            tree.Insert(15);
+            tree.Insert(1);
+
+
+            Assert.False(tree.Lookup(1700));
         }
 
         [Fact]
