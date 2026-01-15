@@ -45,7 +45,7 @@ namespace Algorithms.Tests.Section10
             tree.Insert(1);
 
 
-            Assert.True(tree.Lookup(170));
+            Assert.Equal(170, tree.Lookup(170).Value);
         }
 
         [Fact]
@@ -62,7 +62,7 @@ namespace Algorithms.Tests.Section10
             tree.Insert(1);
 
 
-            Assert.False(tree.Lookup(1700));
+            Assert.Equal(null, tree.Lookup(1700));
         }
 
         [Fact]

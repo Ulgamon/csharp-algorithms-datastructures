@@ -55,14 +55,14 @@ namespace Algorithms.Section10
             }
         }
 
-        public bool Lookup(int value)
+        public Node? Lookup(int value)
         {
             Node? temp = Root;
             while (temp != null)
             {
                 if (temp.Value == value)
                 {
-                    return true;
+                    return temp;
                 }
                 else if (temp.Value < value)
                 {
@@ -73,13 +73,27 @@ namespace Algorithms.Section10
                     temp = temp.Left;
                 }
             }
-            return false;
+            return null;
         }
 
-        public bool Remove(int value)
-        {
-            return false;
-        }
+        //public bool Remove(int value)
+        //{
+        //    if (Root == null)
+        //    {
+        //        return false;
+        //    }
+
+        //    Node? currentNode = Root;
+        //    Node? parentNode = null;
+
+        //    while (currentNode != null)
+        //    {
+        //        if (value < currentNode.Value)
+        //        {
+
+        //        }
+        //    }
+        //}
 
         public List<int> Traverse()
         {
