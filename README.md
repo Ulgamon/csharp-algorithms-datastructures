@@ -36,3 +36,10 @@ Any section that doesn't have any programming exercise will be skipped.
 * [Stack - Using Queue](/Algorithms/Section9/StackUsingQueues.cs)
 
 ## Section 10: Data Structures: Trees
+
+* [Binary Tree](/Algorithms/Section10/BinaryTree.cs)
+
+## Section 11: Data Structures: Graphs
+
+* [Graph - AdjacentList](/Algorithms/Section11/Graph.cs)
+
