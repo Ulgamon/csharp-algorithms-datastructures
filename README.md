@@ -43,3 +43,7 @@ Any section that doesn't have any programming exercise will be skipped.
 
 * [Graph - AdjacentList](/Algorithms/Section11/Graph.cs)
 
+## Section 12: Recursion
+
+* [Factorial - Recursive](/Algorithms/Section12/Factorial.cs)
+* [Fibonacci - Recursive](/Algorithms/Section12/Fibonacci.cs)
